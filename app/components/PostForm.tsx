@@ -19,10 +19,18 @@ export function PostForm({ userId, onSuccess }: PostFormProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    
+
     if (!title.trim()) {
       setError("Title is required");
       return;
     }
+
+    if (title.trim().length < 5) {
+      setError("Title must be at least 5 characters long");
+      return;
+    }
+
 
     setIsSubmitting(true);
     setError(null);

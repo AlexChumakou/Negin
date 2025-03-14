@@ -4,6 +4,7 @@ import { PostContainer } from "@/app/components/PostContainer";
 import { PostList } from "@/app/components/PostList";
 import { prisma } from "@/app/lib/prisma";
 import { RefreshButton } from "./components/RefreshButton";
+import SQLQueryGenerator from "./components/SQLQueryGenerator";
 
 // Disable caching for this page to ensure fresh data on each request
 export const dynamic = "force-dynamic";
@@ -42,6 +43,17 @@ export default async function Home() {
             </div>
             <div className="p-6">
               <PostContainer user={user} />
+            </div>
+          </section>
+
+          <section className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="px-6 py-4 border-b border-gray-200">
+              <h2 className="text-base font-medium text-gray-900">
+                SQL Query Generator
+              </h2>
+            </div>
+            <div className="p-6">
+              <SQLQueryGenerator />
             </div>
           </section>
 
