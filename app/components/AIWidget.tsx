@@ -1,9 +1,9 @@
 "use client";
 
-import { getAIGreeting } from "@/app/actions/post";
+import { getAIGreeting } from "@/app/actions/sql";
 import { useEffect, useState } from "react";
 
-export default function AIGreeting() {
+export default function AIWidget() {
   const [greeting, setGreeting] = useState<string>("Loading AI greeting...");
   const [error, setError] = useState<string | null>(null);
 

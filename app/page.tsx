@@ -1,5 +1,5 @@
 import { getPosts } from "@/app/actions/post";
-import AIGreeting from "@/app/components/AIGreeting";
+import AIWidget from "@/app/components/AIWidget";
 import { PostContainer } from "@/app/components/PostContainer";
 import { PostList } from "@/app/components/PostList";
 import { prisma } from "@/app/lib/prisma";
@@ -52,7 +52,7 @@ export default async function Home() {
               </h2>
             </div>
             <div className="p-6">
-              <AIGreeting />
+              <AIWidget />
             </div>
           </section>
 
