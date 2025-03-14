@@ -1,4 +1,5 @@
 import { getPosts } from "@/app/actions/post";
+import AIGreeting from "@/app/components/AIGreeting";
 import { PostContainer } from "@/app/components/PostContainer";
 import { PostList } from "@/app/components/PostList";
 import { prisma } from "@/app/lib/prisma";
@@ -41,6 +42,17 @@ export default async function Home() {
             </div>
             <div className="p-6">
               <PostContainer user={user} />
+            </div>
+          </section>
+
+          <section className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+            <div className="px-6 py-4 border-b border-gray-200">
+              <h2 className="text-base font-medium text-gray-900">
+                AI Greeting
+              </h2>
+            </div>
+            <div className="p-6">
+              <AIGreeting />
             </div>
           </section>
 

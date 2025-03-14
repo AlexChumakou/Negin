@@ -1,6 +1,7 @@
 "use server";
 
 import { prisma } from "@/app/lib/prisma";
+import OpenAI from "openai";
 
 export async function getPosts() {
   try {
@@ -17,6 +18,36 @@ export async function getPosts() {
   } catch (error) {
     console.error("Error fetching posts:", error);
     return { error: "Failed to fetch posts" };
+  }
+}
+
+export async function getAIGreeting() {
+  try {
+    const openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
+
+    const response = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "system",
+          content: "You are a helpful assistant.",
+        },
+        {
+          role: "user",
+          content: "Say hello world!",
+        },
+      ],
+    });
+
+    return {
+      message: response.choices[0]?.message?.content || "No response from AI",
+      success: true,
+    };
+  } catch (error) {
+    console.error("Error calling AI:", error);
+    return { error: "Failed to get AI response", success: false };
   }
 }
 
