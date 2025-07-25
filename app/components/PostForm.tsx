@@ -2,19 +2,22 @@
 
 import { createPost } from "@/app/actions/post";
 import { cn } from "@/app/lib/utils";
+import type { User } from "@prisma/client";
 import { Loader2, Send } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 interface PostFormProps {
-  userId: string;
+  user: User;
   onSuccess?: () => void;
 }
 
-export function PostForm({ userId, onSuccess }: PostFormProps) {
+export function PostForm({ user, onSuccess }: PostFormProps) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,13 +31,15 @@ export function PostForm({ userId, onSuccess }: PostFormProps) {
     setError(null);
 
     try {
-      const result = await createPost(title, content, userId);
+      const result = await createPost(title, content, user.id);
 
       if (result.error) {
         setError(result.error);
       } else {
         setTitle("");
         setContent("");
+        // Refresh the current route to fetch updated data
+        router.refresh();
         if (onSuccess) {
           onSuccess();
         }

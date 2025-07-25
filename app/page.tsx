@@ -1,6 +1,6 @@
 import { getPosts } from "@/app/actions/post";
 import AIWidget from "@/app/components/AIWidget";
-import { PostContainer } from "@/app/components/PostContainer";
+import { PostForm } from "@/app/components/PostForm";
 import { PostList } from "@/app/components/PostList";
 import { prisma } from "@/app/lib/prisma";
 import { RefreshButton } from "./components/RefreshButton";
@@ -41,7 +41,7 @@ export default async function Home() {
               </h2>
             </div>
             <div className="p-6">
-              <PostContainer user={user} />
+              <PostForm user={user} />
             </div>
           </section>
 
