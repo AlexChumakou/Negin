@@ -26,14 +26,17 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
+      {/* HEADER */}
       <header className="bg-white border-b border-gray-200 py-4">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-xl font-semibold text-gray-900">Posts</h1>
         </div>
       </header>
 
+      {/* MAIN SECTION */}
       <main className="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="max-w-3xl mx-auto space-y-6">
+          {/* NEW POST FORM */}
           <section className="bg-white rounded-lg border border-gray-200 overflow-hidden">
             <div className="px-6 py-4 border-b border-gray-200">
               <h2 className="text-base font-medium text-gray-900">
@@ -45,6 +48,7 @@ export default async function Home() {
             </div>
           </section>
 
+          {/* AI Greeting */}
           <section className="bg-white rounded-lg border border-gray-200 overflow-hidden">
             <div className="px-6 py-4 border-b border-gray-200">
               <h2 className="text-base font-medium text-gray-900">
@@ -56,6 +60,7 @@ export default async function Home() {
             </div>
           </section>
 
+          {/* POST LIST */}
           <section className="space-y-4">
             <div className="flex items-center justify-between">
               <h2 className="text-base font-medium text-gray-900">All Posts</h2>
