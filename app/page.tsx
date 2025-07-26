@@ -56,7 +56,9 @@ export default async function Home() {
               </h2>
             </div>
             <div className="p-6">
-              <AIWidget />
+              <div className="bg-gray-100 border border-gray-300 rounded-md p-3 text-sm w-64">
+                <AIWidget user={user} />
+              </div>
             </div>
           </section>
 
